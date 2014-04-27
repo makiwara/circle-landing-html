@@ -1,0 +1,13 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Nikolay Yaremko -- Design, HTML -- @poloskuns
+    Dan Ayphor, Nickolas Mendo -- Content 
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    jQuery, Modernizr,
+    Streamline icons
