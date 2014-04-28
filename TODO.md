@@ -1,32 +1,31 @@
 
 Sort of stuff I should do.
 
-
 START UP
 --------
 [x] setup a repository & precommit
 
-FOUNDATION
+FOUNDATION - 2 days
 ----------
-[ ] build grid system
-[ ] build responsiveness system
+[x] build grid system
+[x] build responsiveness system
 [ ] build symbol table
-[ ] build font & color rules
+[x] build font & color rules
 [ ] build SVG icons
 
-CONTENT
+CONTENT - 1 day
 -------
 [ ] put data into markup
 [ ] stylize data
 
-ILLUSTRATION
+ILLUSTRATION - 1 day
 ------------
 [ ] place icons
 [ ] place backgrounds
 [ ] animations
 
 
-FINISHING TOUCHES
+FINISHING TOUCHES - 1 day
 -----------------
 [ ] favicon
 [ ] apple touch icon
