@@ -4,7 +4,7 @@ Sort of stuff I should do.
 
 START UP
 --------
-[ ] setup a repository & precommit
+[x] setup a repository & precommit
 
 FOUNDATION
 ----------
