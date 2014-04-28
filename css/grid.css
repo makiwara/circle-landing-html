@@ -99,3 +99,17 @@
     .grid-1024, .grid-1024-image { display: block; }
     .grid-phone, .grid-phone-image { display: none; }
 }
+
+.grid-hr {
+    position: absolute;
+    left:0; top:0; right: 0;
+    width: 100%;
+    z-index: 1000;
+}
+.grid-hr-line {
+    width: 100%;
+    margin-top: 24px;
+    margin-bottom: -1px;
+    height: 1px;
+    background: rgba(255, 0, 0, 1);
+}
