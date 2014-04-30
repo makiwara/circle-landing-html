@@ -17,6 +17,8 @@ select,
 textarea {
     color: #262626;
 }
+img { display: block }
+
 
 html {
     padding: 0;
@@ -137,16 +139,16 @@ a.button:hover, a.button:active {
 }
 .symbols-invert {
     padding: 24px 0;
-    background: #262626;
+    background-color: #262626;
 }
 
 
 section.style-invert {
-    background: #262626;    
+    background-color: #262626;    
 }
 
 .b-subtitle {
-    padding: 24px 0 0;
+    padding: 24px 0;
     text-align: center;
 }
 section h1 {
@@ -164,6 +166,16 @@ section h1 {
     }
 }
 
+a:link, a:visited {
+    text-decoration: underline;
+    color: #262626;
+}
+a:hover, a:active {
+    text-decoration: none;
+    color: #4C698D;
+}
+
+
 /* ==========================================================================
    ========================================================================== */
 nav {
@@ -171,9 +183,10 @@ nav {
     left: 0; 
     width: 100%;
     height: 72px;
-    background: #ffffff; /* todo paper? */
+    background-color: #ffffff; 
     display: none;
     z-index: 1000;
+    box-shadow: 0 -2px 10px rgba(0,0,60, 0.5);
 }
 .nav-space {
     display: none;
@@ -240,7 +253,7 @@ section#title {
         color: #262626;
     }
     .b-left-column, .b-right-column {
-        background: #ffffff; /* TODO paper */
+        background-color: #ffffff;
     }
     .b-left-column {
         padding: 24px 24px 0 24px;
@@ -253,6 +266,7 @@ section#title {
         color: #262626;
     }
 }
+
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
     section#title {
         height: 336px;
@@ -276,14 +290,12 @@ section#title {
         left: 4.1666667%;
         width: 23%;
         margin-top: 24px;
-        -moz-transform: rotateZ(-1deg);
     }
     .b-right-column {
         position: absolute;
         left: 77.083335%;
         width: 20.8333335%;
         margin-top: 24px;
-        -moz-transform: rotateZ(1deg);
     }
     section#title .button {
         width: 90%;
@@ -350,6 +362,7 @@ section#title {
 section#schoolmen {
     position: relative;
     width:100%;
+    padding-bottom: 24px;
 }
 
 @media only screen and (max-width: 767px) {
@@ -428,6 +441,7 @@ section#schoolmen {
         height: 336px;
         position: relative;
         left: 50%;
+        width: 50%;
     }
     .b-person {
         position: absolute;
@@ -478,13 +492,17 @@ section#schoolmen {
 section#programme {
     margin: 0;
     padding: 0;
+    z-index: 900;
 }
 .m-programme-small { display: none }
 .programme-head.style-invert {
-    background: #262626;    
+    background-color: #262626;    
 }
 .programme-part p { display: none }
 .programme-part h2 { display: none }
+.programme-part {
+    padding-bottom: 24px
+}
 
 section#programme ul { 
     padding: 0;
@@ -516,12 +534,49 @@ section#programme .icon-box {
     margin-top: 17px;
     margin-left: -4px;
 }
+.icon-01, .icon-03, .icon-05, .icon-07, .icon-09,
+.icon-11, .icon-13, .icon-15, .icon-17, .icon-19,
+.icon-21, .icon-23, .icon-25, .icon-27, .icon-29
+{
+    margin-left: -21px;
+    margin-top: 70px;
+    -webkit-transform:rotateZ(15deg);
+       -moz-transform:rotateZ(15deg);
+        -ms-transform:rotateZ(15deg);
+         -o-transform:rotateZ(15deg);
+            transform:rotateZ(15deg);
+}
+.icon-02, .icon-04, .icon-06, .icon-08, .icon-10,
+.icon-12, .icon-14, .icon-16, .icon-18, .icon-20,
+.icon-22, .icon-24, .icon-26, .icon-28, .icon-30
+{
+    margin-top: -10px;
+    margin-left: 21px;
+    -webkit-transform:rotateZ(-15deg);
+       -moz-transform:rotateZ(-15deg);
+        -ms-transform:rotateZ(-15deg);
+         -o-transform:rotateZ(-15deg);
+            transform:rotateZ(-15deg);
+}
+.icon-26 {
+    -webkit-transform:rotateZ(100deg);
+       -moz-transform:rotateZ(100deg);
+        -ms-transform:rotateZ(100deg);
+         -o-transform:rotateZ(100deg);
+            transform:rotateZ(100deg);
 
+}
+.icon-01 { margin-top: 50px;}
+.icon-06 { margin-top: 10px;}
 
 @media only screen and (max-width: 767px) {
+    .programme-icons-left, .programme-icons-right { 
+        display: none
+    }
     .m-programme-small { display: block; padding-top: 0; }
     .m-programme-big { display: none }
-    section#programme ul { display: none }
+    section#programme ul,
+    section#programme .ul-space { display: none }
     section#programme .icon-box { display: none }
     .programme-head {
         height: 72px;
@@ -567,6 +622,18 @@ section#programme .icon-box {
         padding-top: 0;
         margin-top: 24px;
     }
+    .programme-icons-left { 
+        display: block;
+        position: absolute;
+        left: 5%;
+        width: 12.5%;
+    }
+    .programme-icons-right { 
+        display: block;
+        position: absolute;
+        left: 85%;
+        width: 12.5%;
+    }    
 }
 @media only screen and (min-width: 1024px) {
     .programme-head { display: none }
@@ -588,19 +655,36 @@ section#programme .icon-box {
     .programme-part-1 p.m-programme-description {
         border: 0;
         padding-top: 0;
-        margin-top: 24px;
+        padding-top: 24px;
     }
+    .programme-icons-left { 
+        display: block;
+        position: absolute;
+        left: 50%;
+        width: 210px;
+        margin-left: -462px;
+    }
+    .programme-icons-right { 
+        display: block;
+        position: absolute;
+        left: 50%;
+        width: 210px;
+        margin-left: 378px;
+    }
+    .icon-24, .icon-25 { display: none}
 }
 
 /* ==========================================================================
    ========================================================================== */
-section#practices {}
+section#practices { 
+}
 @media only screen and (max-width: 767px) {
     .icon-practice-circle { display: none }
     .icon-practice-line { 
         display: block;
         position: absolute;
         margin-top: 28px;
+        margin-left: 8px;
     }
     .practices-list {
         margin: 24px 24px 0 96px;
@@ -717,6 +801,549 @@ section#commendations { padding: 24px 0 48px; }
     section#commendations { padding: 48px 0 72px; }
 }
 
+/* ==========================================================================
+   ========================================================================== */
+section#admission {
+    padding-bottom: 24px
+}
+
+section#admission ol { 
+    margin: 0 24px;
+    padding: 0 24px;
+}
+section#admission ol li { 
+    padding: 0 0 24px 0;
+    margin: 0;
+}
+section#admission ol.m-admission-pi {
+    margin-right: 0;
+    padding-right: 0;
+    margin-bottom: -48px;
+}
+section#admission ol.m-admission-pi li {
+    white-space: nowrap;
+    overflow: hidden;
+}
+.icon-blob-small, 
+.icon-blob-big {
+    position: absolute;
+}
+.icon-blob-orbita { display: none }
+
+
+@media only screen and (max-width: 767px) {
+    .m-admission-extra { display: none }
+    section#admission .icon-blob-big { display: none }
+    section#admission p {
+        margin: 0 24px;
+        padding: 0;
+    }
+    section#admission .b-bubble {
+        width: 96px;
+        height: 120px;
+        margin: 24px 24px 0;
+        text-align: center;
+    }
+    section#admission .b-bubble span {
+        top: 36px;
+        position: relative;
+    }
+
+    .admission-rules {
+        margin: 24px;
+        height: 120px;
+    }
+    .admission-rules .icon-box {
+        margin-left: -6px;
+        margin-top: -6px;
+        position: absolute;
+    }
+    .admission-rules h2 {
+        position: relative;
+        width: 168px;
+        text-align: center;
+        left: 24px;
+        top: 24px;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .m-admission-extra { display: none }
+    section#admission {
+        padding-bottom: 24px;
+    }
+    section#admission .b-bubble {
+        width: 84px;
+        height: 120px;
+        margin: 24px 0 0 4.1666667%;
+        text-align: center;
+    }
+    section#admission .m-admission-999 {
+        width: 110px;
+        height: 144px;
+        text-align: center;
+    }
+    section#admission .icon-blob-small,
+    section#admission .icon-blob-big { margin-left: -8px;}
+    .m-admission-999 .icon-blob-small { display: none; }
+    .icon-blob-big   { display: block; }
+    section#admission .b-bubble span {
+        top: 36px;
+        position: relative;
+    }
+    section#admission .b-bubble.m-admission-999  span {
+        top: 48px;
+    }
+    section#admission p {
+        margin: 0 0 0 4.1666667%;
+        width: 29.1666667%;
+        padding: 0;
+    }
+    .admission-bubbles {
+        position: absolute;
+        margin-top: 24px;
+    }
+    .admission-rules {
+        margin: 48px 4.1666667% 0 50%;
+        height: 144px;
+    }
+    .admission-rules .icon-box {
+        margin-left: -6px;
+        margin-top: -6px;
+        position: absolute;
+    }
+    .admission-rules h2 {
+        position: relative;
+        width: 168px;
+        text-align: center;
+        left: 24px;
+        top: 24px;
+    }
+    section#admission ol { 
+        margin: 0px 4.1666667% 0 50%;
+        padding: 0 0 0 0;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .m-admission-extra { display: none }
+    section#admission {
+        padding-bottom: 24px;
+    }
+    section#admission h1 {
+        padding-bottom: 24px;
+    }
+    .icon-blob-orbita {
+        display: block;
+        position: absolute;
+        left: 50%;
+        margin-left: -1150px;
+        margin-top: -48px;
+    }
+
+    section#admission .b-bubble {
+        width: 84px;
+        height: 120px;
+        margin: 24px 0 0 4.1666667%;
+        text-align: center;
+    }
+    section#admission .m-admission-999 {
+        width: 110px;
+        height: 144px;
+        text-align: center;
+    }
+    section#admission .icon-blob-small,
+    section#admission .icon-blob-big { margin-left: -8px;}
+    .m-admission-999 .icon-blob-small { display: none; }
+    .icon-blob-big   { display: block; }
+    section#admission .b-bubble span {
+        top: 36px;
+        position: relative;
+    }
+    section#admission .b-bubble.m-admission-999 span {
+        top: 48px;
+    }
+    section#admission .b-bubble.m-admission-999 {
+        position: absolute;
+        left: 50%;
+        margin-top: -0px;
+        margin-left: -360px;
+    }
+    section#admission .m-admission-999-text {
+        position: absolute;
+        width: 252px;
+        left: 50%;
+        margin-top: 24px;
+        margin-left: -210px;
+    }
+    section#admission .b-bubble.m-admission-99 {
+        position: absolute;
+        left: 50%;
+        margin-top: 200px;
+        margin-left: -400px;
+    }
+    section#admission .m-admission-99-text {
+        position: absolute;
+        width: 168px;
+        left: 50%;
+        margin-top: 312px;
+        margin-left: -462px;
+    }
+    .admission-rules {
+        position: relative;
+        left: 50%;
+        margin: 48px 0 0 84px;
+        height: 144px;
+        width: 200px;
+    }
+    .admission-rules .icon-box {
+        margin-left: -6px;
+        margin-top: -6px;
+        position: absolute;
+    }
+    .admission-rules h2 {
+        position: relative;
+        width: 168px;
+        text-align: center;
+        left: 24px;
+        top: 24px;
+    }
+    section#admission ol { 
+        width: 420px;
+        margin: 0px 0 0 50%;
+        padding: 0 0 0 0;
+    }
+    section#admission ol.m-admission-pi {
+        width: 50%;
+        overflow: hidden;
+        margin-bottom: -48px;
+    }
+}
+@media only screen and (min-width: 1275px) {
+    .m-admission-extra { display: block }
+    section#admission .b-bubble.m-admission-9999 {
+        position: absolute;
+        left: 50%;
+        margin-top: 480px;
+        margin-left: -620px;
+    }
+    section#admission .m-admission-9999-text {
+        position: absolute;
+        width: 168px;
+        left: 50%;
+        margin-top: 504px;
+        margin-left: -502px;
+    }    
+}
+
+
+/* ==========================================================================
+   ========================================================================== */
+section#enquiry {
+    position: relative;
+}
+input,
+textarea {
+    border: 3px solid #262626;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+    display: block;
+}
+form { padding: 0; margin: 0; }
+.enquiry-send {
+    width: 138px;
+    height: 87px;
+    margin-top: 24px;
+    padding: 0 20px 12px 0;
+    border: none;
+    background: inherit;
+    position: relative;
+    display: block;
+    font-family: AcromExtraBold, 'Arial Black', Arial, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 18px;
+    line-height: 24px;
+    cursor: pointer; cursor: hand;
+}
+.icon-send {
+    position: absolute;
+    margin-top: 24px;
+}
+.enquiry-result {
+    display: none;
+}
+
+@media only screen and (max-width: 767px) {
+    form { margin: 0 75px 0 21px }
+    input, textarea { font-size: 14px }
+    textarea {
+        padding: 24px;
+        margin: 21px 0 18px;
+        height: 120px;
+        width: 100%;
+    }
+    input {
+        padding: 12px 24px;
+        margin: 18px 0;
+        height: 24px;
+        width: 100%;
+    }
+    .enquiry-send {
+        padding: 0 20px 12px 0;
+        margin: 24px 0 57px;
+    }
+    section#enquiry form .style-text {
+        padding: 3px 3px 0;
+    }
+    .enquiry-result {
+        padding: 24px;
+    }
+
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    form {
+        margin: 0 12.5%;
+        padding-top: 48px;
+        padding-bottom: 27px;
+    }
+    textarea {
+        padding: 24px;
+        margin: -3px -3px 0 -3px;
+        height: 168px;
+        width: 91.7%;
+    }
+    input {
+        padding: 12px 24px;
+        margin: 18px -3px;
+        height: 24px;
+        width: 40%;
+    }
+    .enquiry-send {
+        padding: 0 20px 12px 0;
+        position: absolute;
+        margin-top: -96px;
+        margin-left: 45.8333333%;
+    }
+    .icon-send {
+        position: absolute;
+        margin-top: -96px;
+        margin-left: 45.8333333%;
+    }
+    section#enquiry form .style-text {
+        position: absolute;
+        margin-top: -216px;
+        margin-left: 45.8333333%;
+        width: 29.166667%;
+        padding: 3px 0 0;
+    }
+    .enquiry-result {
+        padding: 24px 25%;
+        text-align: center;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    section#enquiry {
+        height: 528px;
+    }
+    form {
+        position: absolute;
+        left: 50%;
+        margin-left: -420px;
+        margin-top: 48px;
+    }
+    textarea {
+        position: absolute;
+        padding: 24px;
+        margin: -3px -3px 0 -3px;
+        height: 264px;
+        width: 372px;
+    }
+    input {
+        padding: 12px 24px;
+        margin: -3px -3px 21px;
+        height: 24px;
+        width: 372px;
+    }
+    .enquiry-inputs {
+        position: absolute;
+        margin-left: 462px;
+    }
+    .enquiry-send {
+        padding: 0 20px 12px 0;
+        position: absolute;
+        margin-top: 216px;
+        margin-left: 746px;
+    }
+    .icon-send {
+        position: absolute;
+        margin-top: 216px;
+        margin-left: 744px;
+    }
+    section#enquiry form .style-text {
+        position: absolute;
+        margin-top: 216px;
+        margin-left: 462px;
+        width: 240px;
+        padding: 3px 0 0;
+    }
+    .enquiry-result {
+        padding: 120px 25%;
+        text-align: center;
+    }
+
+}
+
+/* ==========================================================================
+   ========================================================================== */
+footer {
+    padding-top: 24px;
+    padding-bottom: 96px;
+}
+
+@media only screen and (max-width: 767px) {
+    footer hr {
+        margin: 0 24px 44px;
+    }
+    footer .style-text {
+        margin: 0 24px;
+        text-align: center;
+    }
+    .icon-above {
+        position: relative;
+        left: 50%;
+        width: 126px;
+        margin-left: -63px;
+        margin-top: 24px;
+        margin-bottom: 18px;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    footer hr {
+        margin: 24px 4.1666667% 44px;
+    }
+    .footer-thank  {
+        position: absolute;
+        margin-left: 8.3333334%;
+        margin-top: -120px;
+        width: 29.1666667%;
+        text-align: right;
+    }
+    .footer-copy  {
+        position: absolute;
+        margin-left: 62.5%;
+        margin-top: 24px;
+        width: 29.1666667%;
+        text-align: left;
+    }
+    .icon-above {
+        position: relative;
+        left: 50%;
+        width: 126px;
+        margin-left: -63px;
+        margin-top: 24px;
+        margin-bottom: 18px;
+    }    
+}
+@media only screen and (min-width: 1024px) {
+    footer hr {
+        margin: 0 4.1666667% 44px;
+    }
+    .footer-thank  {
+        position: absolute;
+        left: 50%;
+        margin-left: -336px;
+        margin-top: -120px;
+        width: 252px;
+        text-align: right;
+    }
+    .footer-copy  {
+        position: absolute;
+        left: 50%;
+        margin-left: 84px;
+        margin-top: 24px;
+        width: 252px;
+        text-align: left;
+    }
+    .icon-above {
+        position: relative;
+        left: 50%;
+        width: 126px;
+        margin-left: -63px;
+        margin-top: 24px;
+        margin-bottom: 18px;
+    }    
+}
+
+
+/* ==========================================================================
+   Backgrounds
+   ========================================================================== */
+
+.bg-mm {
+    background-image: url(../img/bg/mm.png);
+    background-repeat: repeat;
+}
+.bg-dots {
+    background-image: url(../img/bg/dots.png);
+    background-repeat: repeat;
+}
+.bg-dots-2 {
+    background-image: url(../img/bg/dots-2.png);
+    background-repeat: repeat;
+}
+
+.bg-title {
+    background-image: url(../img/bg/title.jpg);
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: 25% center;
+}
+.bg-programme {
+    background-image: url(../img/bg/programme.jpg);
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: 25% center;
+}
+.bg-practices {
+    background-image: url(../img/bg/practices.jpg);
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: 25% center;
+}
+.bg-admission {
+    background-image: url(../img/bg/admission.jpg);
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: center 25%;
+}
+
+/* ==========================================================================
+   Fancy rotation
+   ========================================================================== */
+
+h1,
+.b-center-column,
+.b-subtitle,
+.m-person-right,
+.m-person-left,
+.practices-list .style-text,
+.b-left-column {
+    -webkit-transform:rotateZ(-1deg);
+       -moz-transform:rotateZ(-1deg);
+        -ms-transform:rotateZ(-1deg);
+         -o-transform:rotateZ(-1deg);
+            transform:rotateZ(-1deg);
+}
+#admission ol,
+.admission-bubbles .style-text,
+.b-right-column {
+    -webkit-transform:rotateZ(1deg);
+       -moz-transform:rotateZ(1deg);
+        -ms-transform:rotateZ(1deg);
+         -o-transform:rotateZ(1deg);
+            transform:rotateZ(1deg);
+}
 /* ==========================================================================
    Helper classes
    ========================================================================== */

@@ -1,19 +1,32 @@
 /* Prepare icons */
 var data = [ 
     '01', '02', '03', '04', '05', '06', '07', '08', '09', '10',
+    '11', '12', '13', '14', '15', '16', '17', '18', '19', '20',
+    '21', '22', '23', '24', '25', '26', '27', '28', '29', '30',
     'practice-1-books', 'practice-2-lecture', 'practice-3-research', 'practice-4-studies', 'practice-5-reflect',
-    'orbita', 'box', 'practice-circle', 'practice-line' ];
+    'orbita', 'box', 'practice-circle', 'practice-line',
+    'blob-big', 'blob-small', 'blob-orbita',
+    'send', 'above' ];
 var fallback = {}, placement = {};
 for (var i=0; i<data.length; i++) {
     fallback['symbol-'+data[i]] = data[i] + '.png';
     placement['.icon-'+data[i]] = 'symbol-'+data[i];
 }
 var resize = {
+	'.icon-above .svg_icon': [126, 126],
+	'.icon-send .svg_icon': [138, 87],
+	'.icon-blob-big .svg_icon': [140, 140],
+	'.icon-blob-small .svg_icon': [140, 140],
+	'.icon-blob-orbita .svg_icon': [1100, 1100],
 	'.icon-orbita .svg_icon': [550, 500],
 	'.icon-box    .svg_icon': [236, 116],
 	'.icon-practice-circle .svg_icon': [550, 500]	
 }
 var resize_small = {
+	'.icon-above .svg_icon': [126, 126],
+	'.icon-send .svg_icon': [138, 87],
+	'.icon-blob-big .svg_icon': [140, 140],
+	'.icon-blob-small .svg_icon': [140, 140],
 	'.icon-orbita .svg_icon': [412, 375],
 	'.icon-box    .svg_icon': [236, 116],	
 	'.icon-practice-line   .svg_icon': [80, 650],
@@ -96,12 +109,14 @@ function sticky_programme() {
 			if (target > 0) {
 				var part_len = parts[target] - parts[target-1];
 				var menu_len = menu[target] - menu[target-1];
-				console.log(target, parts[target-1], position, position-parts[target-1]+menuHeight+programmeHeight)
+				var new_pos = menu_len*(position-parts[target-1]+menuHeight+programmeHeight)/part_len;
 				$('section#programme .icon-box').css({
-					left: menu[target-1]+menu_len*(position-parts[target-1]+menuHeight+programmeHeight)/part_len
+					left: menu[target-1]+(new_pos>0?new_pos:0)
 				})
 			}
 		}
 		sticky_programme_state = new_state;
 	}
 }
+
+$('a').smoothScroll({ offset: -72 });
