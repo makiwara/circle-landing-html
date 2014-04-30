@@ -5,17 +5,16 @@ START UP
 --------
 [x] setup a repository & precommit
 
-FOUNDATION - 2 days
+FOUNDATION - 1.5 days
 ----------
 [x] build grid system
 [x] build responsiveness system
-[ ] build symbol table
 [x] build font & color rules
-[ ] build SVG icons
+[x] build SVG icons
 
-CONTENT - 1 day
+CONTENT - 3 day
 -------
-[ ] put data into markup
+[x] put data into markup
 [ ] stylize data
 
 ILLUSTRATION - 1 day
@@ -23,6 +22,7 @@ ILLUSTRATION - 1 day
 [ ] place icons
 [ ] place backgrounds
 [ ] animations
+[ ] rotation
 
 
 FINISHING TOUCHES - 1 day
