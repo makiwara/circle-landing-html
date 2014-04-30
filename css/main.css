@@ -217,10 +217,22 @@ nav a:hover, nav a:active {
     color: #4C698D;
 
 }
+.icon-pos {
+    position: absolute;
+    top: 15px;
+    margin-left: -14px;
+    z-index: 2000;
+}
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
     nav, .nav-space { 
         display: block; 
         height: 48px;
+    }
+    .icon-pos {
+        position: absolute;
+        top: 4px;
+        margin-left: -14px;
+        z-index: 2000;
     }
     nav li {
         float: left;

@@ -15,18 +15,17 @@ FOUNDATION - 1.5 days
 CONTENT - 3 day
 -------
 [x] put data into markup
-[ ] stylize data
+[x] stylize data
 
 ILLUSTRATION - 1 day
 ------------
-[ ] place icons
-[ ] place backgrounds
-[ ] animations
-[ ] rotation
+[x] place icons
+[x] place backgrounds
+[-] animations
+[x] rotation
 
 
 FINISHING TOUCHES - 1 day
 -----------------
-[ ] favicon
-[ ] apple touch icon
+[x] favicon
 [ ] 404 page

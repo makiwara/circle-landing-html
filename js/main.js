@@ -6,13 +6,14 @@ var data = [
     'practice-1-books', 'practice-2-lecture', 'practice-3-research', 'practice-4-studies', 'practice-5-reflect',
     'orbita', 'box', 'practice-circle', 'practice-line',
     'blob-big', 'blob-small', 'blob-orbita',
-    'send', 'above' ];
+    'send', 'above', 'pos' ];
 var fallback = {}, placement = {};
 for (var i=0; i<data.length; i++) {
     fallback['symbol-'+data[i]] = data[i] + '.png';
     placement['.icon-'+data[i]] = 'symbol-'+data[i];
 }
 var resize = {
+	'.icon-pos .svg_icon': [41, 41],
 	'.icon-above .svg_icon': [126, 126],
 	'.icon-send .svg_icon': [138, 87],
 	'.icon-blob-big .svg_icon': [140, 140],
@@ -23,6 +24,7 @@ var resize = {
 	'.icon-practice-circle .svg_icon': [550, 500]	
 }
 var resize_small = {
+	'.icon-pos .svg_icon': [41, 41],
 	'.icon-above .svg_icon': [126, 126],
 	'.icon-send .svg_icon': [138, 87],
 	'.icon-blob-big .svg_icon': [140, 140],
@@ -47,6 +49,7 @@ $(window).resize(function(){
 })
 function resizer() {
 	sticky_programme();
+	menu_pos();
 	if ($(window).width() >= 1023)
 		$.resizeSvgIcons(resize);
 	else
@@ -120,3 +123,34 @@ function sticky_programme() {
 }
 
 $('a').smoothScroll({ offset: -72 });
+
+
+
+/* menu pos */
+$(menu_pos);
+$(window).scroll(menu_pos);
+function menu_pos() {
+	if ($(window).width() >= 768) {
+		var parts = [];
+		var menu = [];
+		$("nav li a").each(function() {
+			parts[menu.length] = $($(this).attr('href')).offset().top;
+			menu[menu.length] = $(this).offset().left;
+		})
+		parts[menu.length] = $('footer').offset().top;
+		menu[menu.length] = $('nav ul').offset().left + $('nav ul').width();
+		var menuHeight = $('nav').height();
+		var position = $(document).scrollTop();
+		var target = 0;
+		for (var i=1; i<parts.length; i++)
+			if (parts[i]-menuHeight > position) { target = i; break }
+		if (target > 0) {
+			var part_len = parts[target] - parts[target-1];
+			var menu_len = menu[target] - menu[target-1];
+			var new_pos = menu_len*(position-parts[target-1]+menuHeight)/part_len;
+			$('nav .icon-pos').css({
+				left: menu[target-1]+(new_pos>0?new_pos:0)
+			})
+		}
+	}
+}
