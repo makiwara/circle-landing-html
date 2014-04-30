@@ -21,7 +21,7 @@ ILLUSTRATION - 1 day
 ------------
 [x] place icons
 [x] place backgrounds
-[-] animations
+[x] animations
 [x] rotation
 
 
